@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.mule.modules</groupId>
+	<artifactId>jira-connector</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+	<packaging>mule-module</packaging>
+	<name>Mule Jira Anypoint Connector</name>
+
+	<parent>
+		<groupId>org.mule.tools.devkit</groupId>
+		<artifactId>mule-devkit-parent</artifactId>
+		<version>3.9.0</version>
+	</parent>
+	<dependencies>
+		<dependency>
+			<groupId>com.atlassian.jira</groupId>
+			<artifactId>jira-rest-java-client-parent</artifactId>
+			<version>3.0.0</version>
+			<type>pom</type>
+		</dependency>
+	</dependencies>
+	<properties>
+		<category>Community</category>
+		<licensePath>LICENSE.md</licensePath>
+		<devkit.studio.package.skip>false</devkit.studio.package.skip>
+	</properties>
+	<repositories>
+		<repository>
+			<id>mulesoft-releases</id>
+			<name>MuleSoft Releases Repository</name>
+			<url>http://repository.mulesoft.org/releases/</url>
+			<layout>default</layout>
+		</repository>
+		<repository>
+			<id>jira-java-client-repo</id>
+			<name>Jita java client Repo</name>
+			<url>http://repo.spring.io/libs-release-remote/com/atlassian/jira/jira-rest-java-client-parent/3.0.0/</url>
+		</repository>
+	</repositories>
+</project>

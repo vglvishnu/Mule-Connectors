@@ -1,5 +1,4 @@
 org/mule/modules/jira/generated/devkit/SplashScreenAgent.class
-org/mule/modules/jira/config/ConnectorConfig.class
 org/mule/modules/jira/generated/agents/DefaultSplashScreenAgent.class
 org/mule/modules/jira/generated/adapters/JiraTestConnectorLifecycleInjectionAdapter.class
 org/mule/modules/jira/generated/adapters/JiraTestConnectorCapabilitiesAdapter.class
@@ -8,15 +7,16 @@ org/mule/tooling/ui/contribution/JiraActivator.class
 org/mule/modules/jira/generated/pooling/DevkitGenericKeyedObjectPool.class
 org/mule/modules/jira/generated/adapters/JiraTestConnectorConnectionManagementAdapter.class
 org/mule/modules/jira/generated/processors/FooMessageProcessor.class
-org/mule/modules/jira/generated/config/JiraTestConnectorConnectorConfigConfigDefinitionParser.class
 org/mule/modules/jira/generated/processors/FooMessageProcessor$1.class
 org/mule/modules/jira/generated/adapter/PoolManager.class
 org/mule/modules/jira/generated/config/FooDefinitionParser.class
+org/mule/modules/jira/config/JiraConnectionManagement.class
 org/mule/modules/jira/generated/connectivity/JiraTestConnectorConfigConnectionManagementConnectionManager.class
+org/mule/modules/jira/generated/config/JiraTestConnectorJiraConnectionManagementConfigDefinitionParser.class
 org/mule/modules/jira/generated/processors/FooMessageProcessorDebuggable.class
 org/mule/modules/jira/generated/config/JiraNamespaceHandler.class
 org/mule/modules/jira/JiraTestConnector.class
 org/mule/modules/jira/generated/connectivity/ConnectionManagementConfigJiraTestConnectorConnectionKey.class
 org/mule/modules/jira/generated/adapters/JiraTestConnectorProcessAdapter.class
 org/mule/modules/jira/generated/adapters/JiraTestConnectorMetadataAdapter.class
-org/mule/modules/jira/generated/connectivity/ConnectorConfigJiraTestConnectorAdapter.class
+org/mule/modules/jira/generated/connectivity/JiraConnectionManagementJiraTestConnectorAdapter.class

@@ -28,29 +28,24 @@
               <xs:documentation>Give a name to this configuration so it can be later referenced by config-ref.</xs:documentation>
             </xs:annotation>
           </xs:attribute>
-          <xs:attribute type="xs:string" use="required" name="userName">
-            <xs:annotation>
-              <xs:documentation></xs:documentation>
-            </xs:annotation>
-          </xs:attribute>
-          <xs:attribute type="xs:string" use="required" name="serverUrl">
-            <xs:annotation>
-              <xs:documentation></xs:documentation>
-            </xs:annotation>
-          </xs:attribute>
-          <xs:attribute type="xs:string" use="required" name="pwd">
+          <xs:attribute xmlns="http://www.mulesoft.org/schema/mule/jira" type="booleanType" use="optional" default="true" name="useSSL">
             <xs:annotation>
               <xs:documentation></xs:documentation>
             </xs:annotation>
           </xs:attribute>
           <xs:attribute type="xs:string" use="required" name="username">
             <xs:annotation>
-              <xs:documentation>A username</xs:documentation>
+              <xs:documentation></xs:documentation>
             </xs:annotation>
           </xs:attribute>
           <xs:attribute type="xs:string" use="required" name="password">
             <xs:annotation>
-              <xs:documentation>A password</xs:documentation>
+              <xs:documentation></xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+          <xs:attribute type="xs:string" use="required" name="serverUri">
+            <xs:annotation>
+              <xs:documentation></xs:documentation>
             </xs:annotation>
           </xs:attribute>
         </xs:extension>

@@ -38,13 +38,12 @@
         <name name="name" caption="Name" description="Give a name to this configuration so it can be later referenced by config-ref." required="true"></name>
       </group>
       <group id="connection" caption="Connection">
-        <string name="username" caption="Username" description="A username." required="true" javaType="java.lang.String"></string>
-        <password name="password" caption="Password" description="A password." required="true" javaType="java.lang.String"></password>
+        <string name="username" caption="Username" description="" required="true" javaType="java.lang.String"></string>
+        <password name="password" caption="Password" description="" required="true" javaType="java.lang.String"></password>
+        <string name="serverUri" caption="Server Uri" description="" required="true" javaType="java.lang.String"></string>
       </group>
       <group id="general" caption="General">
-        <string name="pwd" caption="Password" description="" supportsExpressions="false" required="true" javaType="java.lang.String"></string>
-        <string name="serverUrl" caption="Server Address" description="" supportsExpressions="false" required="true" javaType="java.lang.String"></string>
-        <string name="userName" caption="User Name" description="" supportsExpressions="false" required="true" javaType="java.lang.String"></string>
+        <boolean defaultValue="true" name="useSSL" caption="Use SSL" description="" supportsExpressions="false" required="false" javaType="boolean"></boolean>
       </group>
     </attribute-category>
     <attribute-category caption="Pooling Profile" description="Pooling profile options.">

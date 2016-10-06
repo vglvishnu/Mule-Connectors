@@ -18,8 +18,7 @@
           "typeMirror": "java.lang.String",
           "isHttpCallback": false,
           "isArrayOrListOrMap": false,
-          "javaName": "username",
-          "description": "A username"
+          "javaName": "username"
         },
         {
           "javaTypeName": "String",
@@ -33,8 +32,7 @@
           "typeMirror": "java.lang.String",
           "isHttpCallback": false,
           "isArrayOrListOrMap": false,
-          "javaName": "password",
-          "description": "A password"
+          "javaName": "password"
         },
         {
           "javaTypeName": "String",
@@ -48,38 +46,25 @@
           "typeMirror": "java.lang.String",
           "isHttpCallback": false,
           "isArrayOrListOrMap": false,
-          "javaName": "userName"
+          "javaName": "serverUri"
         },
         {
-          "javaTypeName": "String",
-          "fullQualifiedJavaTypeName": "java.lang.String",
-          "isOptional": false,
+          "javaTypeName": "Boolean",
+          "fullQualifiedJavaTypeName": "boolean",
+          "defaultValue": "true",
+          "isOptional": true,
           "isRefOnly": false,
           "isPayload": false,
           "isComplexType": false,
           "isEnum": false,
-          "isString": true,
-          "typeMirror": "java.lang.String",
+          "isString": false,
+          "typeMirror": "boolean",
           "isHttpCallback": false,
           "isArrayOrListOrMap": false,
-          "javaName": "serverUrl"
-        },
-        {
-          "javaTypeName": "String",
-          "fullQualifiedJavaTypeName": "java.lang.String",
-          "isOptional": false,
-          "isRefOnly": false,
-          "isPayload": false,
-          "isComplexType": false,
-          "isEnum": false,
-          "isString": true,
-          "typeMirror": "java.lang.String",
-          "isHttpCallback": false,
-          "isArrayOrListOrMap": false,
-          "javaName": "pwd"
+          "javaName": "useSSL"
         }
       ],
-      "javaName": "ConnectorConfig",
+      "javaName": "JiraConnectionManagement",
       "friendlyName": "Configuration",
       "type": "ConnectionManagementConfig"
     }

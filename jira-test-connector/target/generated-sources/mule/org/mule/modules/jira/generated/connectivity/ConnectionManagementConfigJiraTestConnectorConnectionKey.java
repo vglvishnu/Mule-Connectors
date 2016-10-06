@@ -5,7 +5,7 @@ import javax.annotation.Generated;
 import org.mule.devkit.internal.connection.management.ConnectionManagementConnectionKey;
 
 @SuppressWarnings("all")
-@Generated(value = "Mule DevKit Version 3.9.0", date = "2016-10-04T11:25:48-07:00", comments = "Build UNNAMED.2793.f49b6c7")
+@Generated(value = "Mule DevKit Version 3.9.0", date = "2016-10-05T09:48:52-07:00", comments = "Build UNNAMED.2793.f49b6c7")
 public class ConnectionManagementConfigJiraTestConnectorConnectionKey implements ConnectionManagementConnectionKey
 {
 
@@ -17,10 +17,15 @@ public class ConnectionManagementConfigJiraTestConnectorConnectionKey implements
      * 
      */
     private String password;
+    /**
+     * 
+     */
+    private String serverUri;
 
-    public ConnectionManagementConfigJiraTestConnectorConnectionKey(String username, String password) {
+    public ConnectionManagementConfigJiraTestConnectorConnectionKey(String username, String password, String serverUri) {
         this.username = username;
         this.password = password;
+        this.serverUri = serverUri;
     }
 
     /**
@@ -38,6 +43,23 @@ public class ConnectionManagementConfigJiraTestConnectorConnectionKey implements
      */
     public String getUsername() {
         return this.username;
+    }
+
+    /**
+     * Sets serverUri
+     * 
+     * @param value Value to set
+     */
+    public void setServerUri(String value) {
+        this.serverUri = value;
+    }
+
+    /**
+     * Retrieves serverUri
+     * 
+     */
+    public String getServerUri() {
+        return this.serverUri;
     }
 
     /**

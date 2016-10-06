@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Jira-Test
 Bundle-SymbolicName: org.mule.tooling.ui.contribution.jira.3.5.0;singleton:=true
-Bundle-Version: 1.0.0.201610042325
+Bundle-Version: 1.0.0.201610052148
 Bundle-Activator: org.mule.tooling.ui.contribution.JiraActivator
 Bundle-Vendor: 
 Require-Bundle: org.eclipse.ui,

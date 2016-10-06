@@ -32,7 +32,7 @@ import org.mule.devkit.internal.connection.management.UnableToAcquireConnectionE
 import org.mule.devkit.internal.connectivity.ConnectivityTestingErrorHandler;
 import org.mule.devkit.processor.ExpressionEvaluatorSupport;
 import org.mule.modules.jira.JiraTestConnector;
-import org.mule.modules.jira.config.ConnectorConfig;
+import org.mule.modules.jira.config.JiraConnectionManagement;
 import org.mule.modules.jira.generated.adapters.JiraTestConnectorConnectionManagementAdapter;
 import org.mule.modules.jira.generated.pooling.DevkitGenericKeyedObjectPool;
 
@@ -42,10 +42,10 @@ import org.mule.modules.jira.generated.pooling.DevkitGenericKeyedObjectPool;
  * 
  */
 @SuppressWarnings("all")
-@Generated(value = "Mule DevKit Version 3.9.0", date = "2016-10-04T11:25:48-07:00", comments = "Build UNNAMED.2793.f49b6c7")
+@Generated(value = "Mule DevKit Version 3.9.0", date = "2016-10-05T09:48:52-07:00", comments = "Build UNNAMED.2793.f49b6c7")
 public class JiraTestConnectorConfigConnectionManagementConnectionManager
     extends ExpressionEvaluatorSupport
-    implements MetadataAware, MuleContextAware, ProcessAdapter<JiraTestConnectorConnectionManagementAdapter> , Capabilities, Disposable, Initialisable, Testable, ConnectionManagementConnectionManager<ConnectionManagementConfigJiraTestConnectorConnectionKey, JiraTestConnectorConnectionManagementAdapter, ConnectorConfig>
+    implements MetadataAware, MuleContextAware, ProcessAdapter<JiraTestConnectorConnectionManagementAdapter> , Capabilities, Disposable, Initialisable, Testable, ConnectionManagementConnectionManager<ConnectionManagementConfigJiraTestConnectorConnectionKey, JiraTestConnectorConnectionManagementAdapter, JiraConnectionManagement>
 {
 
     /**
@@ -56,9 +56,11 @@ public class JiraTestConnectorConfigConnectionManagementConnectionManager
      * 
      */
     private String password;
-    private String userName;
-    private String serverUrl;
-    private String pwd;
+    /**
+     * 
+     */
+    private String serverUri;
+    private boolean useSSL;
     /**
      * Mule Context
      * 
@@ -95,6 +97,23 @@ public class JiraTestConnectorConfigConnectionManagementConnectionManager
     }
 
     /**
+     * Sets serverUri
+     * 
+     * @param value Value to set
+     */
+    public void setServerUri(String value) {
+        this.serverUri = value;
+    }
+
+    /**
+     * Retrieves serverUri
+     * 
+     */
+    public String getServerUri() {
+        return this.serverUri;
+    }
+
+    /**
      * Sets password
      * 
      * @param value Value to set
@@ -112,54 +131,20 @@ public class JiraTestConnectorConfigConnectionManagementConnectionManager
     }
 
     /**
-     * Sets userName
+     * Sets useSSL
      * 
      * @param value Value to set
      */
-    public void setUserName(String value) {
-        this.userName = value;
+    public void setUseSSL(boolean value) {
+        this.useSSL = value;
     }
 
     /**
-     * Retrieves userName
+     * Retrieves useSSL
      * 
      */
-    public String getUserName() {
-        return this.userName;
-    }
-
-    /**
-     * Sets serverUrl
-     * 
-     * @param value Value to set
-     */
-    public void setServerUrl(String value) {
-        this.serverUrl = value;
-    }
-
-    /**
-     * Retrieves serverUrl
-     * 
-     */
-    public String getServerUrl() {
-        return this.serverUrl;
-    }
-
-    /**
-     * Sets pwd
-     * 
-     * @param value Value to set
-     */
-    public void setPwd(String value) {
-        this.pwd = value;
-    }
-
-    /**
-     * Retrieves pwd
-     * 
-     */
-    public String getPwd() {
-        return this.pwd;
+    public boolean getUseSSL() {
+        return this.useSSL;
     }
 
     /**
@@ -267,7 +252,7 @@ public class JiraTestConnectorConfigConnectionManagementConnectionManager
 
     @Override
     public ConnectionManagementConfigJiraTestConnectorConnectionKey getDefaultConnectionKey() {
-        return new ConnectionManagementConfigJiraTestConnectorConnectionKey(getUsername(), getPassword());
+        return new ConnectionManagementConfigJiraTestConnectorConnectionKey(getUsername(), getPassword(), getServerUri());
     }
 
     @Override
@@ -283,7 +268,11 @@ public class JiraTestConnectorConfigConnectionManagementConnectionManager
             if (_transformedPassword == null) {
                 throw new UnableToAcquireConnectionException("Parameter password in method connect can't be null because is not @Optional");
             }
-            return new ConnectionManagementConfigJiraTestConnectorConnectionKey(_transformedUsername, _transformedPassword);
+            final String _transformedServerUri = ((String) evaluateAndTransform(muleContext, event, this.getClass().getDeclaredField("serverUri").getGenericType(), null, getServerUri()));
+            if (_transformedServerUri == null) {
+                throw new UnableToAcquireConnectionException("Parameter serverUri in method connect can't be null because is not @Optional");
+            }
+            return new ConnectionManagementConfigJiraTestConnectorConnectionKey(_transformedUsername, _transformedPassword, _transformedServerUri);
         }
         return getDefaultConnectionKey();
     }
@@ -317,15 +306,13 @@ public class JiraTestConnectorConfigConnectionManagementConnectionManager
 
     @Override
     public ConnectionManagementConnectionAdapter newConnection() {
-        ConnectorConfigJiraTestConnectorAdapter connection = new ConnectorConfigJiraTestConnectorAdapter();
-        connection.setUserName(getUserName());
-        connection.setServerUrl(getServerUrl());
-        connection.setPwd(getPwd());
+        JiraConnectionManagementJiraTestConnectorAdapter connection = new JiraConnectionManagementJiraTestConnectorAdapter();
+        connection.setUseSSL(getUseSSL());
         return connection;
     }
 
     @Override
-    public ConnectionManagementConnectorAdapter newConnector(ConnectionManagementConnectionAdapter<ConnectorConfig, ConnectionManagementConfigJiraTestConnectorConnectionKey> connection) {
+    public ConnectionManagementConnectorAdapter newConnector(ConnectionManagementConnectionAdapter<JiraConnectionManagement, ConnectionManagementConfigJiraTestConnectorConnectionKey> connection) {
         JiraTestConnectorConnectionManagementAdapter connector = new JiraTestConnectorConnectionManagementAdapter();
         connector.setConfig(connection.getStrategy());
         return connector;
@@ -339,7 +326,7 @@ public class JiraTestConnectorConfigConnectionManagementConnectionManager
 
     public TestResult test() {
         try {
-            ConnectorConfigJiraTestConnectorAdapter strategy = ((ConnectorConfigJiraTestConnectorAdapter) newConnection());
+            JiraConnectionManagementJiraTestConnectorAdapter strategy = ((JiraConnectionManagementJiraTestConnectorAdapter) newConnection());
             MuleContextAwareManager.setMuleContext(strategy, this.muleContext);
             LifeCycleManager.executeInitialiseAndStart(strategy);
             ConnectionManagementConnectorAdapter connectorAdapter = newConnector(strategy);

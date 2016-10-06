@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <?artifactRepository version='1.1.0'?>
-<repository name='file:/Users/Vishnu/opt/Mule/Workspace/3.8/connector/jira-test-connector/target/update-site/ - artifacts' type='org.eclipse.equinox.p2.artifact.repository.simpleRepository' version='1'>
+<repository name='file:/Users/Vishnu/opt/Mule/code-repo/Mule-Connectors/jira-test-connector/target/update-site/ - artifacts' type='org.eclipse.equinox.p2.artifact.repository.simpleRepository' version='1'>
   <properties size='2'>
-    <property name='p2.timestamp' value='1475648752446'/>
+    <property name='p2.timestamp' value='1475729336485'/>
     <property name='p2.compressed' value='false'/>
   </properties>
   <mappings size='3'>
@@ -11,18 +11,18 @@
     <rule filter='(&amp; (classifier=org.eclipse.update.feature))' output='${repoUrl}/features/${id}_${version}.jar'/>
   </mappings>
   <artifacts size='2'>
-    <artifact classifier='osgi.bundle' id='org.mule.tooling.ui.contribution.jira.3.5.0' version='1.0.0.201610042325'>
+    <artifact classifier='osgi.bundle' id='org.mule.tooling.ui.contribution.jira.3.5.0' version='1.0.0.201610052148'>
       <properties size='3'>
-        <property name='artifact.size' value='1713293'/>
-        <property name='download.size' value='1713293'/>
-        <property name='download.md5' value='19931ae3c2b87de7df81ee2c0b4ed606'/>
+        <property name='artifact.size' value='5341673'/>
+        <property name='download.size' value='5341673'/>
+        <property name='download.md5' value='7711e469735dc687515e053364fd56bd'/>
       </properties>
     </artifact>
-    <artifact classifier='org.eclipse.update.feature' id='org.mule.tooling.ui.extension.jira-connector.3.5.0' version='1.0.0.201610042325'>
+    <artifact classifier='org.eclipse.update.feature' id='org.mule.tooling.ui.extension.jira-connector.3.5.0' version='1.0.0.201610052148'>
       <properties size='4'>
         <property name='artifact.size' value='646'/>
         <property name='download.size' value='646'/>
-        <property name='download.md5' value='03e0192c109a6179d6b7bae78d9f9672'/>
+        <property name='download.md5' value='602d7b6fd69951a07695fe1abb9d773a'/>
         <property name='download.contentType' value='application/zip'/>
       </properties>
     </artifact>
